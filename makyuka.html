@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Confession to [Crush's Name]</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+    
+    h1 {
+      color: #333;
+      margin-top: 50px;
+    }
+    
+    .gif-container {
+      display: inline-block;
+      margin-top: 20px;
+    }
+    
+    .button-container {
+      margin-top: 30px;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #f44336;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    
+    .button:hover {
+      background-color: #e53935;
+    }
+  </style>
+</head>
+<body>
+  <h1>Confession to [Crush's Name]</h1>
+  <div id="gif-container"></div>
+  
+  <div class="button-container">
+    <button class="button" onclick="respondToConfession('Yes')">Yes</button>
+    <button class="button" onclick="respondToConfession('No')">No</button>
+  </div>
+
+  <script>
+    // Confession message
+    var confession = "Hi jelabels, there's something I've been meaning to tell you. I really like you a lot and was wondering if you'd like to be more than just friends. 🙈❤️";
+    
+    // GIFs URLs
+    var gifUrls = [
+      "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif",
+      "https://media.giphy.com/media/LHZyixOnHwDDy/giphy.gif",
+      "https://media.giphy.com/media/FatXjnXCtu0KY/giphy.gif"
+    ];
+    
+    // Function to display GIFs
+    function displayGif(gifUrl) {
+      var gifContainer = document.getElementById('gif-container');
+      var img = document.createElement('img');
+      img.src = gifUrl;
+      gifContainer.appendChild(img);
+    }
+    
+    // Function to respond to the confession
+    function respondToConfession(response) {
+      var responseText = response === 'Yes' ? "That's great! I'm really happy to hear that. 😊" : "Oh, I understand. Let's continue to be good friends. 😊";
+      var confessionContainer = document.getElementById('gif-container');
+      confessionContainer.innerHTML = ''; // Clear the GIFs
+      
+      var responseElement = document.createElement('p');
+      responseElement.innerHTML = responseText;
+      confessionContainer.appendChild(responseElement);
+    }
+    
+    // Loop through the confession message and display GIFs
+    for (var i = 0; i < confession.length; i++) {
+      var char = confession[i];
+      
+      if (char.match(/[a-zA-Z]/)) {
+        // Display a random cute cat GIF
+        var randomGif = gifUrls[Math.floor(Math.random() * gifUrls.length)];
+        displayGif(randomGif);
+      }
+      
+      // Display the character
+      document.write(char);
+    }
+    
+    // Add a final cute cat GIF at the end
+    var finalGif = gifUrls[Math.floor(Math.random()
